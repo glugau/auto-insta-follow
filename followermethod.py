@@ -42,8 +42,8 @@ def followermethod(user_username, user_pwd, iterations):
             continue
         for l in range(accounts_per_acc):
             try:
-                follow_button = browser.find_element_by_xpath("//button[text()='Follow']")
-                follow_button.click()
+                follow_buttons = browser.find_elements_by_xpath("//button[text()='Follow']")
+                follow_buttons[1].click()
                 print("done")
             except:
                 print("Error: this account displays suggestions, causing the program to bug. Returning to another account")

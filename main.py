@@ -4,6 +4,7 @@ from followermethod import *
 from accountmethod import *
 from unfollow import *
 from comment import *
+from followkw import *
 
 #choose between following follower's followers or following followers of an account.
 
@@ -16,6 +17,7 @@ print("0 - Follow your followers' followers")
 print("1 - Follow the followers of a specified account")
 print("2 - Unfollow people")
 print("3 - Post a comment on multiple accounts")
+print("4 - Follow people following accounts fitting a keyword")
 method_choice = input("Enter a number: ")
 method_choice_c = 0
 while True:
@@ -23,10 +25,10 @@ while True:
         method_choice = input("Type a number again: ")
     try:
         method_choice = int(method_choice)
-        if 0 <= method_choice <= 3:
+        if 0 <= method_choice <= 4:
             break
         else:
-            print("Please enter a number between 0, 1 and 2")
+            print("Please enter a number between 0, 1, 2, 3 and 4")
     except:
         print("Please enter a valid number.")
     method_choice_c += 1
@@ -42,6 +44,8 @@ while True:
             iterationword = "Number of people to unfollow: "
         elif method_choice == 3:
             iterationword = "Number of comments to post: "
+        elif method_choice == 4:
+            iterationword = "Number of people to follow: "
         iterations = int(input(iterationword))
         break
     except:
@@ -56,3 +60,5 @@ elif method_choice == 2:
     unfollow(user_username, user_pwd, iterations)
 elif method_choice == 3:
     commentposts(user_username, user_pwd, iterations)
+elif method_choice == 4:
+    followkeyword(user_username, user_pwd, iterations)

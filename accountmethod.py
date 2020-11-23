@@ -17,8 +17,8 @@ def accountmethod(user_username, user_pwd, iterations, target):
     print("Following followers of " + target)
     for i in range(iterations):
         try:
-            follow_button = browser.find_element_by_xpath("//button[text()='Follow']")
-            follow_button.click()
+            follow_buttons = browser.find_elements_by_xpath("//button[text()='Follow']")
+            follow_buttons[1].click()
             print("done")
             sleep(3)
         except:
