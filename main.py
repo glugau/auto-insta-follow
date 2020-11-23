@@ -3,22 +3,27 @@ from selenium import webdriver
 from followermethod import *
 from accountmethod import *
 from unfollow import *
-
+from comment import *
 
 #choose between following follower's followers or following followers of an account.
 
-user_username = "username" #your username. NOT YOUR EMAIL (will make the program crash)
-user_pwd = "pwd" #your password
+user_username = "bulledecrystal" #your username. NOT YOUR EMAIL (will make the program crash)
+user_pwd = "bulledecrystal9574" #your password
 
 print("Your selected account is " + user_username + ". You can change it in the main.py file.")
-method_choice = input("Choose between follower's followers or followers of an account, or unfollow people (0, 1 or 2): ")
+print("Method list:")
+print("0 - Follow your followers' followers")
+print("1 - Follow the followers of a specified account")
+print("2 - Unfollow people")
+print("3 - Post a comment on multiple accounts")
+method_choice = input("Enter a number: ")
 method_choice_c = 0
 while True:
     if method_choice_c > 0:
         method_choice = input("Type a number again: ")
     try:
         method_choice = int(method_choice)
-        if method_choice == 0 or method_choice == 1 or method_choice == 2:
+        if 0 <= method_choice <= 3:
             break
         else:
             print("Please enter a number between 0, 1 and 2")
@@ -30,7 +35,14 @@ iterations = 0
 
 while True:
     try:
-        iterations = int(input("Number of people to (un)follow (approx.): "))
+        interationword = ""
+        if method_choice == 0 or method_choice == 1:
+            iterationword = "Number of people to follow: "
+        elif method_choice == 2:
+            iterationword = "Number of people to unfollow: "
+        elif method_choice == 3:
+            iterationword = "Number of comments to post: "
+        iterations = int(input(iterationword))
         break
     except:
         print("Please enter a valid number.")
@@ -42,3 +54,5 @@ elif method_choice == 1:
     accountmethod(user_username, user_pwd, iterations, target)
 elif method_choice == 2:
     unfollow(user_username, user_pwd, iterations)
+elif method_choice == 3:
+    commentposts(user_username, user_pwd, iterations)
