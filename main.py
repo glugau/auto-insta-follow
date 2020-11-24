@@ -8,8 +8,8 @@ from followkw import *
 
 #choose between following follower's followers or following followers of an account.
 
-user_username = "bulledecrystal" #your username. NOT YOUR EMAIL (will make the program crash)
-user_pwd = "bulledecrystal9574" #your password
+user_username = "" #your username. NOT YOUR EMAIL (will make the program crash)
+user_pwd = "" #your password
 
 print("Your selected account is " + user_username + ". You can change it in the main.py file.")
 print("Method list:")
